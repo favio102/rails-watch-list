@@ -1,0 +1,8 @@
+<div class="container">
+<p>Create</p>
+  <%= form_for(@list) do |t| %>
+    <%= t.label :name %>
+    <%= t.text_field :name %>
+    <%= t.submit  %>
+  <% end %>
+</div>
