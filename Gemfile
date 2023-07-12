@@ -54,6 +54,10 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~>6.1"
 # Simple form
 gem "simple_form"
+# KPrivate keys .env
+gem "dotenv-rails", groups: [:development, :test]
+# Clouddinary
+gem "cloudinary"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
