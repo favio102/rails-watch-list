@@ -1,0 +1,11 @@
+.rotate {
+  // width: 150px;
+  height: 150px;
+  color: $light-gray;
+  scale: 1 1;
+  animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+  50% {rotate: y 180deg;}
+}
