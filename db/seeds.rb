@@ -9,7 +9,7 @@ require 'open-uri'
 require 'json'
 
 puts "Cleaning up database..."
-Movie.destroy_all
+WchLstMovie.destroy_all
 puts "Database cleaned"
 
 url = "http://tmdb.lewagon.com/movie/top_rated"
@@ -19,7 +19,7 @@ url = "http://tmdb.lewagon.com/movie/top_rated"
   movies.each do |movie|
     puts "Creating #{movie['title']}"
     base_poster_url = "https://image.tmdb.org/t/p/original"
-    Movie.create(
+    WchLstMovie.create(
       title: movie['title'],
       overview: movie['overview'],
       poster_url: "#{base_poster_url}#{movie['backdrop_path']}",
