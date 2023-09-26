@@ -8,6 +8,7 @@ class WchLstListsController < ApplicationController
   def show
     @bookmark = WchLstBookmark.new
     @review = WchLstReview.new(wch_lst_list: @list)
+    @movies = @list.movies
   end
 
   def new
