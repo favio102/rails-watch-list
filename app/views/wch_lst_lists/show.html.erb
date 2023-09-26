@@ -2,11 +2,11 @@
   <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : asset_path('list_background.jpg') %>)">
     <h1><%= @list.name %></h1>
   </div>
-  <span class="movie-tag"><%= pluralize(@list.movies.size, "movie") %></span>
+  <span class="movie-tag"><%= pluralize(@list.wch_lst_movies.size, "movie") %></span>
 </div>
 <div class="container mb-5">
   <div class="d-flex justify-content-between my-4">
-    <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't saved any movies yet!" if @list.movies.empty? %></em></small></span>
+    <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't saved any movies yet!" if @list.wch_lst_movies.empty? %></em></small></span>
     <div>
       <button type="button" class="btn btn-flat" data-bs-toggle="modal" data-bs-target="#new_movie_modal">
         add a movie
@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="row my-2">
-    <% @list.movies.each do |movie| %>
+    <% @list.wch_lst_movies.each do |movie| %>
       <% bookmark = WchLstBookmark.find_by(wch_lst_list: @list, wch_lst_movie: movie) %>
       <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
         <div class="bg-white rounded shadow h-100">
@@ -27,7 +27,7 @@
               <div>
                 <i class="fas fa-quote-left me-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
               </div>
-              <small class="text-right flex-shrink-0"><%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small>
+              <small class="text-right flex-shrink-0"><%= link_to "delete", wch_lst_bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small>
             </div>
           </div>
         </div>
@@ -38,10 +38,10 @@
   <div class="row">
     <div class="col-12 col-sm-6">
       <h3>Reviews</h3>
-      <% if @list.reviews.empty? %>
+      <% if @list.wch_lst_reviews.empty? %>
         <small><em class="text-muted">Be the first one to review this list</em></small>
       <% end %>
-      <% @list.reviews.each do |review| %>
+      <% @list.wch_lst_reviews.each do |review| %>
         <div>
           <% review.rating.times do %>
             <i class="fas fa-star star-yellow"></i>

@@ -7,9 +7,9 @@
         </button>
       </div>
 
-      <%= simple_form_for [list, bookmark] do |f| %>
+      <%= simple_form_for [wch_lst_list, wch_lst_bookmark] do |f| %>
         <div class="modal-body">
-          <%= f.association :movie, collection: WchLStMovie.all.order(:title), prompt: "Select a movie", input_html: { data: { controller: "tom-select" } } %>
+          <%= f.association :wch_lst_movie, collection: WchLstMovie.all.order(:title), prompt: "Select a movie", input_html: { data: { controller: "tom-select" } } %>
           <%= f.input :comment, placeholder: "Enter a comment about the movie" %>
         </div>
         <div class="modal-footer">
