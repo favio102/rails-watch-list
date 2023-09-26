@@ -7,7 +7,7 @@
 # end
 
 class Bookmark < ApplicationRecord
-  self.table_name = "wat_lst_create_bookmarks"
+  self.table_name = "wch_lst_bookmarks"
   belongs_to :movie
   belongs_to :list
 

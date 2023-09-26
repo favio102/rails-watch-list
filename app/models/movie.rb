@@ -7,7 +7,7 @@
 
 
 class Movie < ApplicationRecord
-  self.table_name = "wat_lst_create_movies"
+  self.table_name = "wch_lst_movies"
   has_many :bookmarks
 
   validates :title, presence: true, uniqueness: true

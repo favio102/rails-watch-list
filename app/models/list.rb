@@ -9,7 +9,7 @@
 
 
 class List < ApplicationRecord
-  self.table_name = "wat_lst_create_lists"
+  self.table_name = "wch_lst_lists"
   has_many :bookmarks, dependent: :destroy
   has_many :movies, through: :wat_lst_create_bookmarks, dependent: :destroy
   has_many :reviews, dependent: :destroy
